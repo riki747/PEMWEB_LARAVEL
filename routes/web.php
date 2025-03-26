@@ -4,32 +4,36 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('web.homepage');
 })->name('home');
 
-Route::get('/product', function () {
-    return "Halaman Product";
-});
+// Route::get('products', function(){
+//     return view('web.products');
+//    });
 
-Route::get('/detail-product', function () {
-    return "Halaman detail Product";
-});
+Route::get(uri: 'products', action: function(){
+    return view('web.products');
+   });
 
-Route::get('/contact', function () {
-    return "Halaman Contact";
-});
+   Route::get('product/{slug}', function($slug){
+    return view('web.single_product');
+   });
 
-Route::get('/about', function () {
-    return "Halaman About";
-});
+//    Route::get('categories', function(){
+//     return view('web.categories');
+//    });
 
-Route::get('/cart', function () {
-    return "Halaman Keranjang";
-});
+//    Route::get('category/{slug}', function($slug){
+//     return view('web.single_category');
+//    });
 
-Route::get('/profil', function () {
-    return "Halaman profil";
-});
+//    Route::get('cart', function(){
+//     return view('web.cart');
+//    });
+
+//    Route::get('checkout', function(){
+//     return view('web.checkout');
+//    });
 
 
 Route::view('dashboard', 'dashboard')

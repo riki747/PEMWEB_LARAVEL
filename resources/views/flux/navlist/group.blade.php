@@ -47,5 +47,12 @@
 <div {{ $attributes->class('block space-y-[2px]') }}>
     {{ $slot }}
 </div>
+<flux:navlist.item 
+    icon="box" 
+    :href="route('products.index')" 
+    :current="request()->routeIs('products.*')" 
+    wire:navigate>
+    Produk
+</flux:navlist.item>
 
 <?php endif; ?>

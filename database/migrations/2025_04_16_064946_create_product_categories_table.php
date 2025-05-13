@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->string('sku')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->integer('stock');
+            $table->foreignId('product_category_id')->constrained('product_categories');
+            $table->string('image_url')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }
